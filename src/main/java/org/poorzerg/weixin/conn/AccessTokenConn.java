@@ -59,7 +59,7 @@ public class AccessTokenConn {
 			eCode.setErrcode(((Integer) map.get("errcode")).intValue());
 			eCode.setErrmsg((String) map.get("errmsg"));
 			LOG.error(
-					"get the accessToken error! appid:[?], appsecret:[?],errMsg:[?]",
+					"get the accessToken error! appid:[{}], appsecret:[{}],errMsg:[{}]",
 					appid, appsecret, eCode.toString());
 			return null;
 		}

@@ -20,7 +20,9 @@
 package org.poorzerg.weixin.bean.msg;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.poorzerg.weixin.utils.XStreamFactory;
 
+import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
@@ -31,7 +33,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("xml")
 public class InMsg {
-	private String tokenKey;
 
 	private String ToUserName;
 
@@ -40,6 +41,7 @@ public class InMsg {
 	private long CreateTime;
 
 	private String MsgType = "text";
+
 	private long MsgId;
 
 	// 文本消息
@@ -161,10 +163,6 @@ public class InMsg {
 
 	public String getTitle() {
 		return Title;
-	}
-
-	public String getTokenKey() {
-		return tokenKey;
 	}
 
 	public String getToUserName() {
@@ -294,10 +292,6 @@ public class InMsg {
 		Title = title;
 	}
 
-	public void setTokenKey(String tokenKey) {
-		this.tokenKey = tokenKey;
-	}
-
 	public void setToUserName(String toUserName) {
 		ToUserName = toUserName;
 	}
@@ -306,8 +300,22 @@ public class InMsg {
 		Url = url;
 	}
 
+	public String toXml() {
+		XStream xs = XStreamFactory.init(true);
+		xs.autodetectAnnotations(true);
+		return xs.toXML(this);
+	}
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);
+	}
+
+	public static void main(String[] args) {
+		String inMsgXml = "<xml><ToUserName><![CDATA[gh_7fa37f54512d]]></ToUserName><FromUserName><![CDATA[odznIt0MdReW3yj_Xzy8B8jyswok]]></FromUserName><CreateTime>1398158699</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[放多少]]></Content><MsgId>6005045887023079080</MsgId></xml>";
+		XStream xs = XStreamFactory.init(false);
+		xs.ignoreUnknownElements();
+		xs.processAnnotations(InMsg.class);
+		System.out.println(xs.fromXML(inMsgXml));
 	}
 }

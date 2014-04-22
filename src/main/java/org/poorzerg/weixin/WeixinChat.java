@@ -164,8 +164,7 @@ public class WeixinChat {
 	private static InMsg parsingInMessage(String inMsgXml) {
 		XStream xs = XStreamFactory.init(false);
 		xs.ignoreUnknownElements();
-		xs.autodetectAnnotations(true);
+		xs.processAnnotations(InMsg.class);
 		return (InMsg) xs.fromXML(inMsgXml);
 	}
-
 }

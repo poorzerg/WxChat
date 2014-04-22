@@ -57,7 +57,7 @@ public class MenuConn {
 			JSONObject obj = JSONObject.fromObject(result);
 			ErrCodeMsg eCode = new ErrCodeMsg(obj);
 			if (eCode.getErrcode() != 0) {
-				LOG.error("create the menu error! menuJson:[?], errMsg:[?]",
+				LOG.error("create the menu error! menuJson:[{}], errMsg:[{}]",
 						menuButton.toJson(), eCode.toString());
 				return false;
 			}
@@ -97,7 +97,7 @@ public class MenuConn {
 		if (StringUtils.isNotBlank(result)) {
 			ErrCodeMsg eCode = new ErrCodeMsg(JSONObject.fromObject(result));
 			if (eCode.getErrcode() != 0) {
-				LOG.error("delete the menu error! errMsg:[?]"
+				LOG.error("delete the menu error! errMsg:[{}]"
 						+ eCode.toString());
 				return false;
 			}

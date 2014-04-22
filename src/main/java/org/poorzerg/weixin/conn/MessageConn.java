@@ -65,7 +65,7 @@ public class MessageConn {
 		ErrCodeMsg eCode = new ErrCodeMsg(obj);
 		if (eCode.getErrcode() != 0) {
 			LOG.error(
-					"send the text msg error! openid:[?], text:[?], errMsg:[?]",
+					"send the text msg error! openid:[{}], text:[{}], errMsg:[{}]",
 					openid, text, eCode.toString());
 			return false;
 		}
@@ -95,7 +95,7 @@ public class MessageConn {
 		ErrCodeMsg eCode = new ErrCodeMsg(obj);
 		if (eCode.getErrcode() != 0) {
 			LOG.error(
-					"send the image msg error! openid:[?], media_id:[?],errMsg:[?]",
+					"send the image msg error! openid:[{}], media_id:[{}],errMsg:[{}]",
 					openid, media_id, eCode.toString());
 			return false;
 		}

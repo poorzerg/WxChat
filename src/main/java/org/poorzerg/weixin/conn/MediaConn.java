@@ -73,7 +73,7 @@ public class MediaConn {
 			if (null != obj.get("errcode")) {
 				ErrCodeMsg eCode = new ErrCodeMsg(obj);
 				LOG.error(
-						"upload the media error! type:[?], filePath:[?], errMsg:[?]",
+						"upload the media error! type:[{}], filePath:[{}], errMsg:[{}]",
 						type, file.getAbsolutePath(), eCode.toString());
 				return null;
 			}

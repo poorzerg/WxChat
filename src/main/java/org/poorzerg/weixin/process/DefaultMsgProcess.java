@@ -22,12 +22,20 @@ package org.poorzerg.weixin.process;
 import org.poorzerg.weixin.bean.msg.InMsg;
 import org.poorzerg.weixin.bean.msg.out.OutMsg;
 import org.poorzerg.weixin.bean.msg.out.TextOutMsg;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DefaultMsgProcess implements MsgProcess {
+	private static final Logger LOG = LoggerFactory.getLogger(MsgProcess.class);
+
 	private OutMsg outMsg;
 
 	@Override
 	public void allType(InMsg msg) {
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("inMsg:[{}]", msg.toXml());
+		}
+
 		TextOutMsg out = new TextOutMsg("我已经接收到您的[" + msg.getMsgType()
 				+ "]消息了！");
 		setOutMsg(out);

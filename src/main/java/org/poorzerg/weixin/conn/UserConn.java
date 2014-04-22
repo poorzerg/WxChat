@@ -62,7 +62,7 @@ public class UserConn {
 			JSONObject obj = JSONObject.fromObject(jsonStr);
 			if (obj.get("errcode") != null) {
 				ErrCodeMsg eCode = new ErrCodeMsg(obj);
-				LOG.error("get the user info error! openid:[?], errMsg:[?]",
+				LOG.error("get the user info error! openid:[{}], errMsg:[{}]",
 						openid, eCode.toString());
 				return null;
 			}
@@ -92,7 +92,7 @@ public class UserConn {
 			if (obj.get("errcode") != null) {
 				ErrCodeMsg eCode = new ErrCodeMsg(obj);
 				LOG.error(
-						"get the follwers info error! next_openid:[?], errMsg:[?]",
+						"get the follwers info error! next_openid:[{}], errMsg:[{}]",
 						next_openid, eCode.toString());
 				return null;
 			}

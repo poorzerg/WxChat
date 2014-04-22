@@ -71,7 +71,7 @@ public class GroupConn {
 			JSONObject obj = JSONObject.fromObject(reslut);
 			if (obj.get("errcode") != null) {
 				ErrCodeMsg eCode = new ErrCodeMsg(obj);
-				LOG.error("create group error!groupName:[?], errMsg:[?]",
+				LOG.error("create group error!groupName:[{}], errMsg:[{}]",
 						groupName, eCode.toString());
 				return null;
 			}
@@ -99,7 +99,7 @@ public class GroupConn {
 			JSONObject obj = JSONObject.fromObject(reslut);
 			if (obj.get("errcode") != null) {
 				ErrCodeMsg eCode = new ErrCodeMsg(obj);
-				LOG.error("get the all group info error!errMsg:[?]",
+				LOG.error("get the all group info error!errMsg:[{}]",
 						eCode.toString());
 				return null;
 			}
@@ -129,7 +129,7 @@ public class GroupConn {
 			if (obj.get("errcode") != null) {
 				ErrCodeMsg eCode = new ErrCodeMsg(obj);
 				LOG.error(
-						"check the member in group error!openid:[?], errMsg:[?]",
+						"check the member in group error!openid:[{}], errMsg:[{}]",
 						openid, eCode.toString());
 				return -1;
 			}
@@ -166,7 +166,7 @@ public class GroupConn {
 
 			if (eCode.getErrcode() != 0) {
 				LOG.error(
-						"update the group name error! groupId:[?], updateName:[?], errMsg:[?]",
+						"update the group name error! groupId:[{}], updateName:[{}], errMsg:[{}]",
 						id, name, eCode.toString());
 				return false;
 			}
@@ -198,7 +198,7 @@ public class GroupConn {
 
 			if (eCode.getErrcode() != 0) {
 				LOG.error(
-						"move the member to the group error! openid:[?], toGroupid:[?], errMsg:[?]",
+						"move the member to the group error! openid:[{}], toGroupid:[{}], errMsg:[{}]",
 						openid, toGroupid, eCode.toString());
 				return false;
 			}
