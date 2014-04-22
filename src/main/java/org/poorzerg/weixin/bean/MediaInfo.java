@@ -1,0 +1,55 @@
+/**
+ * 
+ * https://github.com/poorzerg/WxChat
+ *
+ * Copyright 2010-2014 Guoqiang Chen. All rights reserved.
+ * Email: poorzerg@gmail.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.poorzerg.weixin.bean;
+
+/**
+ * 
+ * @author Poorzerg
+ * @date 2014年4月22日 下午12:15:20
+ */
+public class MediaInfo {
+	private String type;
+	private String media_id;
+	private long create_at;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getMedia_id() {
+		return media_id;
+	}
+
+	public void setMedia_id(String media_id) {
+		this.media_id = media_id;
+	}
+
+	public long getCreate_at() {
+		return create_at;
+	}
+
+	public void setCreate_at(long create_at) {
+		this.create_at = create_at;
+	}
+}
