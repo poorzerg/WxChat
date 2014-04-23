@@ -19,12 +19,13 @@
  */
 package org.poorzerg.weixin.conn;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.poorzerg.weixin.BaseTest;
+import org.poorzerg.weixin.WeixinChat;
 
 /**
  * 
@@ -32,6 +33,8 @@ import org.poorzerg.weixin.BaseTest;
  * @date 2014年4月22日 下午3:33:09
  */
 public class MenuConnTest extends BaseTest {
+
+	private MenuConn menu = WeixinChat.menu;
 
 	public MenuConnTest() throws Exception {
 		super();
@@ -51,8 +54,8 @@ public class MenuConnTest extends BaseTest {
 	}
 
 	@Test
-	public void testGetMenuInfo() {
-		fail("Not yet implemented");
+	public void testGetMenuInfo() throws Exception {
+		System.out.println(menu.getMenuInfo(accessToken));
 	}
 
 	@Test

@@ -26,6 +26,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 
+@Deprecated
 public class MenuButton {
 	public static final String TYPE_VIEW = "view";
 	public static final String TYPE_CLICK = "click";
@@ -105,7 +106,7 @@ public class MenuButton {
 		}
 
 		if (StringUtils.isBlank(name) || null == subButtons
-				|| subButtons.length == 0) {
+				|| subButtons.length == 0 || subButtons.length > 5) {
 			throw new NullPointerException("name:" + name + ", subButton:"
 					+ subButtons);
 		}
