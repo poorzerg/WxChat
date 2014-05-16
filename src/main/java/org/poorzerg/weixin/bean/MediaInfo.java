@@ -27,7 +27,7 @@ package org.poorzerg.weixin.bean;
 public class MediaInfo {
 	private String type;
 	private String media_id;
-	private long create_at;
+	private int created_at;
 
 	public String getType() {
 		return type;
@@ -45,11 +45,11 @@ public class MediaInfo {
 		this.media_id = media_id;
 	}
 
-	public long getCreate_at() {
-		return create_at;
+	public int getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreate_at(long create_at) {
-		this.create_at = create_at;
+	public void setCreated_at(int created_at) {
+		this.created_at = created_at;
 	}
 }

@@ -25,6 +25,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.poorzerg.weixin.BaseTest;
+import org.poorzerg.weixin.WeixinChat;
 
 /**
  * 
@@ -32,6 +33,7 @@ import org.poorzerg.weixin.BaseTest;
  * @date 2014年4月22日 下午3:32:34
  */
 public class MessageConnTest extends BaseTest {
+	private MessageConn mc = WeixinChat.message;
 
 	public MessageConnTest() throws Exception {
 		super();
@@ -46,13 +48,13 @@ public class MessageConnTest extends BaseTest {
 	}
 
 	@Test
-	public void testSendText() {
-		fail("Not yet implemented");
+	public void testSendText() throws Exception {
+		mc.sendText(accessToken, openid, "你好，这是单元测试发送信息");
 	}
 
 	@Test
 	public void testSendImage() {
+//		mc.sendImage(accessToken, openid, media_id)
 		fail("Not yet implemented");
 	}
-
 }

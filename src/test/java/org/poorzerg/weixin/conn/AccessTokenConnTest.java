@@ -25,6 +25,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.poorzerg.weixin.BaseTest;
+import org.poorzerg.weixin.WeixinChat;
 
 /**
  * 
@@ -32,6 +33,7 @@ import org.poorzerg.weixin.BaseTest;
  * @date 2014年4月22日 下午3:31:28
  */
 public class AccessTokenConnTest extends BaseTest {
+	private AccessTokenConn atc = WeixinChat.accessToken;
 
 	public AccessTokenConnTest() throws Exception {
 		super();
@@ -47,12 +49,18 @@ public class AccessTokenConnTest extends BaseTest {
 
 	@Test
 	public void testGetAccessToken() {
-		fail("Not yet implemented");
+		assertNotNull("can`t get the accessToken", accessToken);
+		System.out.println("accessToken:" + accessToken.getAccessToken());
+		System.out.println("expiresIn:" + accessToken.getExpiresIn());
 	}
 
 	@Test
-	public void testValidateAppidAndAppsecret() {
-		fail("Not yet implemented");
+	public void testValidateAppidAndAppsecret() throws Exception {
+		assertTrue(atc.validateAppidAndAppsecret(appid, appsecret));
+		assertFalse(atc.validateAppidAndAppsecret(appid + "_0", appsecret));
+		assertFalse(atc.validateAppidAndAppsecret(appid, appsecret + "_0"));
+		assertFalse(atc.validateAppidAndAppsecret(appid + "_0", appsecret
+				+ "_0"));
 	}
 
 }

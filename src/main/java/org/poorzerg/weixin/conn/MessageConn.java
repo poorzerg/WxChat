@@ -47,7 +47,7 @@ public class MessageConn {
 	 * @param accessToken
 	 * @param openid
 	 * @param text
-	 * @return 
+	 * @return
 	 * @throws Exception
 	 */
 	public boolean sendText(AccessToken accessToken, String openid, String text)
@@ -81,8 +81,8 @@ public class MessageConn {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean sendImage(String accessToken, String openid, String media_id)
-			throws Exception {
+	public boolean sendImage(AccessToken accessToken, String openid,
+			String media_id) throws Exception {
 		Map<String, Object> json = new HashMap<String, Object>();
 		Map<String, Object> imageObj = new HashMap<String, Object>();
 		imageObj.put("media_id", media_id);
@@ -90,7 +90,8 @@ public class MessageConn {
 		json.put("msgtype", "image");
 		json.put("image", imageObj);
 		String post = JSONObject.fromObject(json).toString();
-		String reslut = Http.post(MESSAGE_URL.concat(accessToken), post);
+		String reslut = Http.post(
+				MESSAGE_URL.concat(accessToken.getAccessToken()), post);
 		JSONObject obj = JSONObject.fromObject(reslut);
 		ErrCodeMsg eCode = new ErrCodeMsg(obj);
 		if (eCode.getErrcode() != 0) {

@@ -21,10 +21,17 @@ package org.poorzerg.weixin.conn;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.poorzerg.weixin.BaseTest;
+import org.poorzerg.weixin.WeixinChat;
+import org.poorzerg.weixin.bean.MediaInfo;
+import org.poorzerg.weixin.type.MediaType;
+import org.poorzerg.weixin.utils.Attachment;
 
 /**
  * 
@@ -32,6 +39,7 @@ import org.poorzerg.weixin.BaseTest;
  * @date 2014年4月22日 下午3:32:16
  */
 public class MediaConnTest extends BaseTest {
+	private MediaConn mc = WeixinChat.media;
 
 	public MediaConnTest() throws Exception {
 		super();
@@ -46,13 +54,28 @@ public class MediaConnTest extends BaseTest {
 	}
 
 	@Test
-	public void testGetMedia() {
-		fail("Not yet implemented");
+	public void testUploadMediaGt128KB() throws Exception {
+		MediaInfo mInfo = mc.uploadMedia(accessToken,
+				MediaType.IMAGE.getName(), new File(
+						"src/test/resources/image/001.jpg"));
+		assertNull(mInfo);
 	}
 
 	@Test
-	public void testUploadMedia() {
-		fail("Not yet implemented");
+	public void testUploadMediaAndGet() throws Exception {
+		MediaInfo mInfo = mc.uploadMedia(accessToken,
+				MediaType.IMAGE.getName(), new File(
+						"src/test/resources/image/002.jpg"));
+		assertNotNull(mInfo);
+		Attachment attach = mc.getMedia(accessToken, mInfo.getMedia_id());
+		assertNotNull(attach);
+	}
+
+	@Test
+	public void testGetMediaByErrorMediaId() throws IOException {
+		Attachment attach = mc.getMedia(accessToken, "001");
+		assertNotNull(attach);
+		assertEquals(40007, attach.getErrCode().getErrcode());
 	}
 
 }

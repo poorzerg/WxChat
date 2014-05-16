@@ -47,7 +47,10 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.lang.StringUtils;
+import org.poorzerg.weixin.bean.msg.ErrCodeMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -330,7 +333,9 @@ public class Http {
 				bufferRes.append(valueString);
 			}
 			in.close();
-			att.setError(bufferRes.toString());
+			ErrCodeMsg errCode = new ErrCodeMsg(JSONObject.fromObject(bufferRes
+					.toString()));
+			att.setErrCode(errCode);
 		} else {
 			BufferedInputStream bis = new BufferedInputStream(
 					conn.getInputStream());

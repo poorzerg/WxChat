@@ -21,6 +21,8 @@ package org.poorzerg.weixin.utils;
 
 import java.io.BufferedInputStream;
 
+import org.poorzerg.weixin.bean.msg.ErrCodeMsg;
+
 public class Attachment {
 	private String fileName;
 	private String fullName;
@@ -28,61 +30,61 @@ public class Attachment {
 	private String contentLength;
 	private String contentType;
 	private BufferedInputStream fileStream;
-	private String error;
-
-	public String getFullName() {
-		return fullName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+	private ErrCodeMsg errCode;
 
 	public String getContentLength() {
 		return contentLength;
-	}
-
-	public void setContentLength(String contentLength) {
-		this.contentLength = contentLength;
 	}
 
 	public String getContentType() {
 		return contentType;
 	}
 
-	public void setContentType(String contentType) {
-		this.contentType = contentType;
+	public ErrCodeMsg getErrCode() {
+		return errCode;
+	}
+
+	public String getFileName() {
+		return fileName;
 	}
 
 	public BufferedInputStream getFileStream() {
 		return fileStream;
 	}
 
-	public void setFileStream(BufferedInputStream fileStream) {
-		this.fileStream = fileStream;
-	}
-
-	public String getError() {
-		return error;
-	}
-
-	public void setError(String error) {
-		this.error = error;
-	}
-
-	public void setSuffix(String suffix) {
-		this.suffix = suffix;
+	public String getFullName() {
+		return fullName;
 	}
 
 	public String getSuffix() {
 		return suffix;
+	}
+
+	public void setContentLength(String contentLength) {
+		this.contentLength = contentLength;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public void setErrCode(ErrCodeMsg errCode) {
+		this.errCode = errCode;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public void setFileStream(BufferedInputStream fileStream) {
+		this.fileStream = fileStream;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
 	}
 }
