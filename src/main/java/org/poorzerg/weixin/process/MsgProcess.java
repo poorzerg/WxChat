@@ -29,79 +29,77 @@ public interface MsgProcess {
 	 * @param msg
 	 * @return
 	 */
-	public void allType(InMsg msg);
+	public OutMsg allType(InMsg msg);
 
 	/**
 	 * 文字内容的消息处理
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void textMsg(InMsg msg);
+	public OutMsg textMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 地理位置类型的消息处理
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void locationMsg(InMsg msg);
+	public OutMsg locationMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 图片类型的消息处理
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void imageMsg(InMsg msg);
+	public OutMsg imageMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 视频类型的消息处理
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void videoMsg(InMsg msg);
+	public OutMsg videoMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 链接类型的消息处理
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void linkMsg(InMsg msg);
+	public OutMsg linkMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 语音类型的消息处理
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void voiceMsg(InMsg msg);
+	public OutMsg voiceMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 事件类型的消息处理。<br/>
 	 * 在用户首次关注公众账号时，系统将会推送一条subscribe的事件
 	 * 
-	 * @param msg
+	 * @param in
+	 * @param out
 	 * @return
 	 */
-	public void eventMsg(InMsg msg);
+	public OutMsg eventMsg(InMsg in, OutMsg out);
 
 	/**
 	 * 处理流程结束，返回输出信息之前执行
-	 */
-	public void afterProcess(InMsg inMsg, OutMsg outMsg);
-
-	/**
-	 * 设置输出
 	 * 
-	 * @param outMessage
+	 * @param inMsg
+	 * @param outMsg
 	 */
-	public void setOutMsg(OutMsg outMessage);
-
-	/**
-	 * 处返回输出对象
-	 */
-	public OutMsg getOutMessage();
+	public OutMsg afterProcess(InMsg inMsg, OutMsg outMsg);
 }

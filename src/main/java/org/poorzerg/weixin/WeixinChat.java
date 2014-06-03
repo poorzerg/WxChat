@@ -104,29 +104,27 @@ public class WeixinChat {
 	 * @return
 	 */
 	public static String processing(String inMsgXml) {
-		InMsg inMessage = parsingInMessage(inMsgXml);
+		InMsg in = parsingInMessage(inMsgXml);
 
-		OutMsg oms = null;
+		OutMsg out = null;
 		String xml = "";
 
 		try {
-			msgProcess.allType(inMessage);
-			String type = inMessage.getMsgType();
+			out = msgProcess.allType(in);
+			String type = in.getMsgType();
 			Method method = msgProcess.getClass().getMethod(type + "Msg",
 					InMsg.class);
 
 			if (method != null) {
-				method.invoke(msgProcess, inMessage);
-				oms = msgProcess.getOutMessage();
-				if (null != oms) {
-					setMsgInfo(oms, inMessage);
-					msgProcess.afterProcess(inMessage, oms);
-					xml = oms.toXml();
+				out = (OutMsg) method.invoke(msgProcess, in, out);
+				if (null != out) {
+					setMsgInfo(out, in);
+					out = msgProcess.afterProcess(in, out);
+					xml = out.toXml();
 				}
 			}
 		} catch (Exception e) {
-			LOG.error("process the msg error! inMsg:[" + inMessage.toString()
-					+ "]", e);
+			LOG.error("process the msg error! inMsg:[" + in.toString() + "]", e);
 		}
 		return xml;
 	}

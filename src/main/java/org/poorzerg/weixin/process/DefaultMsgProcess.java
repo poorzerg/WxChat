@@ -28,67 +28,60 @@ import org.slf4j.LoggerFactory;
 public class DefaultMsgProcess implements MsgProcess {
 	private static final Logger LOG = LoggerFactory.getLogger(MsgProcess.class);
 
-	private OutMsg outMsg;
-
 	@Override
-	public void allType(InMsg msg) {
+	public OutMsg allType(InMsg msg) {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("inMsg:[{}]", msg.toXml());
 		}
 
-		TextOutMsg out = new TextOutMsg("我已经接收到您的[" + msg.getMsgType()
-				+ "]消息了！");
-		setOutMsg(out);
+		return new TextOutMsg("我已经接收到您的[" + msg.getMsgType() + "]消息了！");
 	}
 
 	@Override
-	public void textMsg(InMsg msg) {
+	public OutMsg textMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void locationMsg(InMsg msg) {
+	public OutMsg locationMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void imageMsg(InMsg msg) {
+	public OutMsg imageMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void videoMsg(InMsg msg) {
+	public OutMsg videoMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void linkMsg(InMsg msg) {
+	public OutMsg linkMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void voiceMsg(InMsg msg) {
+	public OutMsg voiceMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void eventMsg(InMsg msg) {
+	public OutMsg eventMsg(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
 
 	@Override
-	public void afterProcess(InMsg inMsg, OutMsg outMsg) {
+	public OutMsg afterProcess(InMsg in, OutMsg out) {
 		// TODO Auto-generated method stub
+		return out;
 	}
-
-	@Override
-	public void setOutMsg(OutMsg outMsg) {
-		this.outMsg = outMsg;
-	}
-
-	@Override
-	public OutMsg getOutMessage() {
-		return outMsg;
-	}
-
 }
