@@ -27,7 +27,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import org.poorzerg.weixin.bean.msg.InMsg;
+import org.poorzerg.weixin.bean.msg.in.InMsg;
 import org.poorzerg.weixin.bean.msg.out.OutMsg;
 import org.poorzerg.weixin.conn.AccessTokenConn;
 import org.poorzerg.weixin.conn.GroupConn;
@@ -113,7 +113,7 @@ public class WeixinChat {
 			out = msgProcess.allType(in);
 			String type = in.getMsgType();
 			Method method = msgProcess.getClass().getMethod(type + "Msg",
-					InMsg.class);
+					InMsg.class, OutMsg.class);
 
 			if (method != null) {
 				out = (OutMsg) method.invoke(msgProcess, in, out);

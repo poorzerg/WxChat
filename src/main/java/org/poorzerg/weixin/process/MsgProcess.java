@@ -19,7 +19,7 @@
  */
 package org.poorzerg.weixin.process;
 
-import org.poorzerg.weixin.bean.msg.InMsg;
+import org.poorzerg.weixin.bean.msg.in.InMsg;
 import org.poorzerg.weixin.bean.msg.out.OutMsg;
 
 public interface MsgProcess {

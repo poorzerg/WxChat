@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.poorzerg.weixin.bean.msg;
+package org.poorzerg.weixin.bean.msg.in;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.poorzerg.weixin.utils.XStreamFactory;
@@ -40,9 +40,10 @@ public class InMsg {
 
 	private long CreateTime;
 
-	private String MsgType = "text";
-
 	private long MsgId;
+
+	// 默认类型
+	private String MsgType = "text";
 
 	// 文本消息
 	private String Content;
