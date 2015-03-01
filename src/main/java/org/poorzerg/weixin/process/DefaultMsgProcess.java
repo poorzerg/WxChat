@@ -39,56 +39,82 @@ public class DefaultMsgProcess implements MsgProcess {
 	@Override
 	public void allType(InMsg msg) {
 		if (LOG.isDebugEnabled()) {
-			LOG.debug("inMsg:[{}]", msg.toXml());
+			LOG.debug("inMsg XML:[{}]", msg.toXml());
 		}
 	}
 
 	@Override
 	public OutMsg textMsg(InMsg in) {
 		TextInMsg msg = new TextInMsg(in);
-		System.out.println(msg.toString());
-		return null;
+		OutMsg outMsg = null;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("TextInMsg:[{}]", msg.toString());
+			outMsg = new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		}
+		return outMsg;
 	}
 
 	@Override
 	public OutMsg locationMsg(InMsg in) {
 		LocationInMsg msg = new LocationInMsg(in);
-		System.out.println(msg.toString());
-		return null;
+		OutMsg outMsg = null;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("LocationInMsg:[{}]", msg.toString());
+			outMsg = new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		}
+		return outMsg;
 	}
 
 	@Override
 	public OutMsg imageMsg(InMsg in) {
 		ImageInMsg msg = new ImageInMsg(in);
-		System.out.println(msg.toString());
-		return null;
+		OutMsg outMsg = null;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("ImageInMsg:[{}]", msg.toString());
+			outMsg = new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		}
+		return outMsg;
 	}
 
 	@Override
 	public OutMsg videoMsg(InMsg in) {
 		VideoInMsg msg = new VideoInMsg(in);
-		System.out.println(msg.toString());
-		return null;
+		OutMsg outMsg = null;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("VideoInMsg:[{}]", msg.toString());
+			outMsg = new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		}
+		return outMsg;
 	}
 
 	@Override
 	public OutMsg linkMsg(InMsg in) {
 		LinkInMsg msg = new LinkInMsg(in);
-		System.out.println(msg.toString());
-		return null;
+		OutMsg outMsg = null;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("LinkInMsg:[{}]", msg.toString());
+			outMsg = new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		}
+		return outMsg;
 	}
 
 	@Override
 	public OutMsg voiceMsg(InMsg in) {
 		VoiceInMsg msg = new VoiceInMsg(in);
-		System.out.println(msg.toString());
-		return null;
+		OutMsg outMsg = null;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("VoiceInMsg:[{}]", msg.toString());
+			outMsg = new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		}
+		return outMsg;
 	}
 
 	@Override
 	public OutMsg eventMsg(InMsg in) {
 		EventInMsg msg = new EventInMsg(in);
-		System.out.println(msg.toString());
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("EventInMsg:[{}]", msg.toString());
+		}
 		return eventProcess.process(msg);
 	}
 
@@ -98,6 +124,6 @@ public class DefaultMsgProcess implements MsgProcess {
 			return out;
 		}
 		// FIXME just for test
-		return new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
+		return new TextOutMsg("After-我已经接收到您的[" + in.getMsgType() + "]消息了！");
 	}
 }
