@@ -30,13 +30,13 @@ public enum MsgType {
 	LOCATION("location"), //
 	EVENT("event");
 
-	private String name;
+	private String value;
 
-	private MsgType(String name) {
-		this.name = name;
+	private MsgType(String value) {
+		this.value = value;
 	}
 
-	public String getName() {
-		return name;
+	public String getValue() {
+		return value;
 	}
 }

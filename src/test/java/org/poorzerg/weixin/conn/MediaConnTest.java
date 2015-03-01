@@ -56,7 +56,7 @@ public class MediaConnTest extends BaseTest {
 	@Test
 	public void testUploadMediaGt128KB() throws Exception {
 		MediaInfo mInfo = mc.uploadMedia(accessToken,
-				MediaType.IMAGE.getName(), new File(
+				MediaType.IMAGE.getValue(), new File(
 						"src/test/resources/image/001.jpg"));
 		assertNull(mInfo);
 	}
@@ -64,7 +64,7 @@ public class MediaConnTest extends BaseTest {
 	@Test
 	public void testUploadMediaAndGet() throws Exception {
 		MediaInfo mInfo = mc.uploadMedia(accessToken,
-				MediaType.IMAGE.getName(), new File(
+				MediaType.IMAGE.getValue(), new File(
 						"src/test/resources/image/002.jpg"));
 		assertNotNull(mInfo);
 		Attachment attach = mc.getMedia(accessToken, mInfo.getMedia_id());

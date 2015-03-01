@@ -32,6 +32,12 @@ import org.poorzerg.weixin.bean.msg.out.TextOutMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 默认消息处理器
+ * 
+ * @author Poorzerg
+ *
+ */
 public class DefaultMsgProcess implements MsgProcess {
 	private static final Logger LOG = LoggerFactory.getLogger(MsgProcess.class);
 	private DefaultEventProcess eventProcess = new DefaultEventProcess();

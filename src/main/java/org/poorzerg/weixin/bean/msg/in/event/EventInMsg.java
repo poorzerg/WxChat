@@ -99,26 +99,26 @@ public class EventInMsg extends Msg {
 	}
 
 	public boolean isClickEvent() {
-		return this.Event.equals(EventType.CLICK.getName());
+		return this.Event.equals(EventType.CLICK.getValue());
 	}
 
 	public boolean isLocationEvent() {
-		return this.Event.equals(EventType.LOCATION.getName());
+		return this.Event.equals(EventType.LOCATION.getValue());
 	}
 
 	public boolean isScanEvent() {
-		return this.Event.equals(EventType.SCAN.getName());
+		return this.Event.equals(EventType.SCAN.getValue());
 	}
 
 	public boolean isSubscribeEvent() {
-		return this.Event.equals(EventType.SUBSCRIBE.getName());
+		return this.Event.equals(EventType.SUBSCRIBE.getValue());
 	}
 
 	public boolean isUnsubscribeEvent() {
-		return this.Event.equals(EventType.UNSUBSCRIBE.getName());
+		return this.Event.equals(EventType.UNSUBSCRIBE.getValue());
 	}
 
 	public boolean isViewEvent() {
-		return this.Event.equals(EventType.VIEW.getName());
+		return this.Event.equals(EventType.VIEW.getValue());
 	}
 }

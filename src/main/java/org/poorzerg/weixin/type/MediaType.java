@@ -34,13 +34,13 @@ public enum MediaType {
 	/** 缩略图（thumb）：64KB，支持JPG格式 */
 	THUMB("thumb");
 
-	private String name;
+	private String value;
 
-	private MediaType(String name) {
-		this.name = name;
+	private MediaType(String value) {
+		this.value = value;
 	}
 
-	public String getName() {
-		return name;
+	public String getValue() {
+		return value;
 	}
 }

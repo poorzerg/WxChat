@@ -28,13 +28,13 @@ public enum EventType {
 	CLICK("CLICK"), //
 	VIEW("VIEW");
 
-	private String name;
+	private String value;
 
-	private EventType(String name) {
-		this.name = name;
+	private EventType(String value) {
+		this.value = value;
 	}
 
-	public String getName() {
-		return name;
+	public String getValue() {
+		return value;
 	}
 }

@@ -176,37 +176,37 @@ public class InMsg extends Msg {
 
 	public Boolean isEvent() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.EVENT
-				.getName());
+				.getValue());
 	}
 
 	public Boolean isImage() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.IMAGE
-				.getName());
+				.getValue());
 	}
 
 	public Boolean isLink() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.LINK
-				.getName());
+				.getValue());
 	}
 
 	public Boolean isLocation() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.LOCATION
-				.getName());
+				.getValue());
 	}
 
 	public Boolean isText() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.TEXT
-				.getName());
+				.getValue());
 	}
 
 	public Boolean isVideo() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.VIDEO
-				.getName());
+				.getValue());
 	}
 
 	public Boolean isVoice() {
 		return this.MsgType.equals(org.poorzerg.weixin.type.MsgType.VOICE
-				.getName());
+				.getValue());
 	}
 
 	public void setContent(String content) {

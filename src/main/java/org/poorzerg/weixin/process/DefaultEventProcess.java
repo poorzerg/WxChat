@@ -23,27 +23,33 @@ import org.poorzerg.weixin.bean.msg.in.event.EventInMsg;
 import org.poorzerg.weixin.bean.msg.out.OutMsg;
 import org.poorzerg.weixin.bean.msg.out.TextOutMsg;
 
+/**
+ * 默认事件消息处理器
+ * 
+ * @author Poorzerg
+ *
+ */
 public class DefaultEventProcess {
 
-	public OutMsg process(EventInMsg eventMsg) {
-		if (eventMsg.isSubscribeEvent()) {
+	public OutMsg process(EventInMsg eventInMsg) {
+		if (eventInMsg.isSubscribeEvent()) {
 
-		} else if (eventMsg.isUnsubscribeEvent()) {
+		} else if (eventInMsg.isUnsubscribeEvent()) {
 
-		} else if (eventMsg.isScanEvent()) {
+		} else if (eventInMsg.isScanEvent()) {
 
-		} else if (eventMsg.isLocationEvent()) {
+		} else if (eventInMsg.isLocationEvent()) {
 
-		} else if (eventMsg.isClickEvent()) {
+		} else if (eventInMsg.isClickEvent()) {
 
-		} else if (eventMsg.isViewEvent()) {
+		} else if (eventInMsg.isViewEvent()) {
 
 		} else {
 			// TODO undefine type
 		}
 
 		// FIXME just for test
-		return new TextOutMsg("我已经接收到您的event消息了，事件是[" + eventMsg.getEvent()
+		return new TextOutMsg("我已经接收到您的event消息了，事件是[" + eventInMsg.getEvent()
 				+ "]");
 	}
 }

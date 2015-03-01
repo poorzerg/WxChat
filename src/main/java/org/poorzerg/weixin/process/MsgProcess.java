@@ -24,7 +24,7 @@ import org.poorzerg.weixin.bean.msg.out.OutMsg;
 
 public interface MsgProcess {
 	/**
-	 * 统一处理器
+	 * 统一处理所有消息
 	 * 
 	 * @param msg
 	 * @return
@@ -96,7 +96,7 @@ public interface MsgProcess {
 	public OutMsg eventMsg(InMsg in);
 
 	/**
-	 * 处理流程结束，返回输出信息之前执行
+	 * 消息处理结束前，对输入信息以及输出信息再次统一处理
 	 * 
 	 * @param inMsg
 	 * @param outMsg
