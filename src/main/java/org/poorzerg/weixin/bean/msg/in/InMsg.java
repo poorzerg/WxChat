@@ -19,7 +19,7 @@
  */
 package org.poorzerg.weixin.bean.msg.in;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.poorzerg.weixin.bean.msg.Msg;
 import org.poorzerg.weixin.utils.XStreamFactory;
 
 import com.thoughtworks.xstream.XStream;
@@ -32,7 +32,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * 
  */
 @XStreamAlias("xml")
-public class InMsg {
+public class InMsg extends Msg {
 
 	private String ToUserName;
 
@@ -299,17 +299,6 @@ public class InMsg {
 
 	public void setUrl(String url) {
 		Url = url;
-	}
-
-	public String toXml() {
-		XStream xs = XStreamFactory.init(true);
-		xs.autodetectAnnotations(true);
-		return xs.toXML(this);
-	}
-
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
 	}
 
 	public static void main(String[] args) {

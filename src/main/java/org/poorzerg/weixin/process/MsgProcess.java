@@ -29,7 +29,7 @@ public interface MsgProcess {
 	 * @param msg
 	 * @return
 	 */
-	public OutMsg allType(InMsg msg);
+	public void allType(InMsg msg);
 
 	/**
 	 * 文字内容的消息处理
@@ -38,7 +38,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg textMsg(InMsg in, OutMsg out);
+	public OutMsg textMsg(InMsg in);
 
 	/**
 	 * 地理位置类型的消息处理
@@ -47,7 +47,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg locationMsg(InMsg in, OutMsg out);
+	public OutMsg locationMsg(InMsg in);
 
 	/**
 	 * 图片类型的消息处理
@@ -56,7 +56,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg imageMsg(InMsg in, OutMsg out);
+	public OutMsg imageMsg(InMsg in);
 
 	/**
 	 * 视频类型的消息处理
@@ -65,7 +65,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg videoMsg(InMsg in, OutMsg out);
+	public OutMsg videoMsg(InMsg in);
 
 	/**
 	 * 链接类型的消息处理
@@ -74,7 +74,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg linkMsg(InMsg in, OutMsg out);
+	public OutMsg linkMsg(InMsg in);
 
 	/**
 	 * 语音类型的消息处理
@@ -83,7 +83,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg voiceMsg(InMsg in, OutMsg out);
+	public OutMsg voiceMsg(InMsg in);
 
 	/**
 	 * 事件类型的消息处理。<br/>
@@ -93,7 +93,7 @@ public interface MsgProcess {
 	 * @param out
 	 * @return
 	 */
-	public OutMsg eventMsg(InMsg in, OutMsg out);
+	public OutMsg eventMsg(InMsg in);
 
 	/**
 	 * 处理流程结束，返回输出信息之前执行

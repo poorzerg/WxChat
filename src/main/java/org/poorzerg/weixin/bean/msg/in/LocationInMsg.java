@@ -1,6 +1,8 @@
 package org.poorzerg.weixin.bean.msg.in;
 
-public class LocationInMsg {
+import org.poorzerg.weixin.bean.msg.Msg;
+
+public class LocationInMsg extends Msg{
 	private String ToUserName;
 	private String FromUserName;
 	private long CreateTime;

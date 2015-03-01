@@ -19,7 +19,14 @@
  */
 package org.poorzerg.weixin.process;
 
+import org.poorzerg.weixin.bean.msg.in.ImageInMsg;
 import org.poorzerg.weixin.bean.msg.in.InMsg;
+import org.poorzerg.weixin.bean.msg.in.LinkInMsg;
+import org.poorzerg.weixin.bean.msg.in.LocationInMsg;
+import org.poorzerg.weixin.bean.msg.in.TextInMsg;
+import org.poorzerg.weixin.bean.msg.in.VideoInMsg;
+import org.poorzerg.weixin.bean.msg.in.VoiceInMsg;
+import org.poorzerg.weixin.bean.msg.in.event.EventInMsg;
 import org.poorzerg.weixin.bean.msg.out.OutMsg;
 import org.poorzerg.weixin.bean.msg.out.TextOutMsg;
 import org.slf4j.Logger;
@@ -27,61 +34,70 @@ import org.slf4j.LoggerFactory;
 
 public class DefaultMsgProcess implements MsgProcess {
 	private static final Logger LOG = LoggerFactory.getLogger(MsgProcess.class);
+	private DefaultEventProcess eventProcess = new DefaultEventProcess();
 
 	@Override
-	public OutMsg allType(InMsg msg) {
+	public void allType(InMsg msg) {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("inMsg:[{}]", msg.toXml());
 		}
-
-		return new TextOutMsg("我已经接收到您的[" + msg.getMsgType() + "]消息了！");
 	}
 
 	@Override
-	public OutMsg textMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg textMsg(InMsg in) {
+		TextInMsg msg = new TextInMsg(in);
+		System.out.println(msg.toString());
+		return null;
 	}
 
 	@Override
-	public OutMsg locationMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg locationMsg(InMsg in) {
+		LocationInMsg msg = new LocationInMsg(in);
+		System.out.println(msg.toString());
+		return null;
 	}
 
 	@Override
-	public OutMsg imageMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg imageMsg(InMsg in) {
+		ImageInMsg msg = new ImageInMsg(in);
+		System.out.println(msg.toString());
+		return null;
 	}
 
 	@Override
-	public OutMsg videoMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg videoMsg(InMsg in) {
+		VideoInMsg msg = new VideoInMsg(in);
+		System.out.println(msg.toString());
+		return null;
 	}
 
 	@Override
-	public OutMsg linkMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg linkMsg(InMsg in) {
+		LinkInMsg msg = new LinkInMsg(in);
+		System.out.println(msg.toString());
+		return null;
 	}
 
 	@Override
-	public OutMsg voiceMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg voiceMsg(InMsg in) {
+		VoiceInMsg msg = new VoiceInMsg(in);
+		System.out.println(msg.toString());
+		return null;
 	}
 
 	@Override
-	public OutMsg eventMsg(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+	public OutMsg eventMsg(InMsg in) {
+		EventInMsg msg = new EventInMsg(in);
+		System.out.println(msg.toString());
+		return eventProcess.process(msg);
 	}
 
 	@Override
 	public OutMsg afterProcess(InMsg in, OutMsg out) {
-		// TODO Auto-generated method stub
-		return out;
+		if (null != out) {
+			return out;
+		}
+		// FIXME just for test
+		return new TextOutMsg("我已经接收到您的[" + in.getMsgType() + "]消息了！");
 	}
 }

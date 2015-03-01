@@ -1,6 +1,8 @@
 package org.poorzerg.weixin.bean.msg.in;
 
-public class TextInMsg {
+import org.poorzerg.weixin.bean.msg.Msg;
+
+public class TextInMsg extends Msg {
 	private String Content;
 
 	private long CreateTime;

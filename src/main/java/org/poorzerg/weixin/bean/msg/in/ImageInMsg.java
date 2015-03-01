@@ -1,6 +1,8 @@
 package org.poorzerg.weixin.bean.msg.in;
 
-public class ImageInMsg {
+import org.poorzerg.weixin.bean.msg.Msg;
+
+public class ImageInMsg extends Msg{
 	private long CreateTime;
 	private String FromUserName;
 	private String MediaId;

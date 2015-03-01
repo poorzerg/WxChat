@@ -1,6 +1,8 @@
 package org.poorzerg.weixin.bean.msg.in;
 
-public class VideoInMsg {
+import org.poorzerg.weixin.bean.msg.Msg;
+
+public class VideoInMsg extends Msg{
 	private String ToUserName;
 	private String FromUserName;
 	private long CreateTime;

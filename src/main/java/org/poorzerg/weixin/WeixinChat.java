@@ -110,16 +110,16 @@ public class WeixinChat {
 		String xml = "";
 
 		try {
-			out = msgProcess.allType(in);
+			msgProcess.allType(in);
 			String type = in.getMsgType();
 			Method method = msgProcess.getClass().getMethod(type + "Msg",
-					InMsg.class, OutMsg.class);
+					InMsg.class);
 
 			if (method != null) {
-				out = (OutMsg) method.invoke(msgProcess, in, out);
+				out = (OutMsg) method.invoke(msgProcess, in);
+				out = msgProcess.afterProcess(in, out);
 				if (null != out) {
 					setMsgInfo(out, in);
-					out = msgProcess.afterProcess(in, out);
 					xml = out.toXml();
 				}
 			}

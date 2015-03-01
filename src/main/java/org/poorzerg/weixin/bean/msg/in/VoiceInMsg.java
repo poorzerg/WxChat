@@ -1,6 +1,8 @@
 package org.poorzerg.weixin.bean.msg.in;
 
-public class VoiceInMsg {
+import org.poorzerg.weixin.bean.msg.Msg;
+
+public class VoiceInMsg extends Msg {
 	private long CreateTime;
 
 	private String Format;

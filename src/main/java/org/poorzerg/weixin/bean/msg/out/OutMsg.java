@@ -19,17 +19,9 @@
  */
 package org.poorzerg.weixin.bean.msg.out;
 
-import org.poorzerg.weixin.utils.XStreamFactory;
+import org.poorzerg.weixin.bean.msg.Msg;
 
-import com.thoughtworks.xstream.XStream;
-
-public abstract class OutMsg {
-	@SuppressWarnings("unchecked")
-	public static <T extends OutMsg> T fromXml(String xml, Class<T> clazz) {
-		XStream xs = XStreamFactory.init(true);
-		xs.processAnnotations(clazz);
-		return (T) xs.fromXML(xml);
-	}
+public abstract class OutMsg extends Msg {
 
 	private String ToUserName;
 
@@ -61,11 +53,5 @@ public abstract class OutMsg {
 
 	public void setMsgType(String msgType) {
 		MsgType = msgType;
-	}
-
-	public String toXml() {
-		XStream xs = XStreamFactory.init(true);
-		xs.autodetectAnnotations(true);
-		return xs.toXML(this);
 	}
 }
