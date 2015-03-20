@@ -1,5 +1,5 @@
 #WxChat
-****An Open Source Java SDK for WeChat Open Platform****  
+**An Open Source Java SDK for WeChat Open Platform**  
 WxChat是为腾讯微信公众平台制作的一个Java版本的SDK，旨在快速建立开发模式的微信公众账号。
 目前WxChat处于1.0版本
   
